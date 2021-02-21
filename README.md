@@ -1,6 +1,6 @@
-# Haskell from the Very Beginning -John Whitington
+# Reference guide to programming with Haskell ~ MITCHΞLL 
 
-Haskell by example referenced from the above book and author.
+This Haskell by example guide is referenced from "Haskell from the Very Beginning by John Whitington"
 
 In Haskell from the Very Beginning John Whitington takes a no-prerequisites approach to teaching the basics of a modern general-purpose programming language. Each small, self-contained chapter introduces a new topic, building until the reader can write quite substantial programs. There are plenty of questions and, crucially, worked answers and hints.
 
