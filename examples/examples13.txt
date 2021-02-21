@@ -1,0 +1,59 @@
+-- To be typed into haskell. Not a script file.
+
+-- Required functions
+:{
+map' :: (a -> b) -> [a] -> [b]
+
+map' f [] = []
+map' f (x:xs) = f x : map' f xs
+
+
+take' :: (Eq a, Num a) => a -> [b] -> [b]
+
+take' 0 l = []
+take' n (x:xs) = x : take' (n - 1) xs
+
+
+filter' :: (a -> Bool) -> [a] -> [a]
+
+filter' _ [] = []
+filter' f (x:xs) =
+  if f x then x : filter' f xs else filter' f xs
+:}
+
+
+-- Chapter examples
+ones = 1 : ones
+
+repeat' x = x : repeat' x
+
+from x = x : from (x + 1)
+
+take' 20 (from 5)
+
+cubes = filter' (\x -> x `rem` 5 == 0) (map' (\x -> x * x * x) [1..])
+
+take' 20 cubes
+
+take' 10 (filter' (\x -> x == 0) [1..])
+
+:{
+makePrimes (x:xs) =
+  x : makePrimes (filter' (\n -> n `rem` x /= 0) xs)
+:}
+
+primes = makePrimes [2..]
+
+interleave (x:xs) ys = x : interleave ys xs
+
+take 20 (interleave (repeat' 0) (repeat' 1))
+
+:{
+allFrom l =
+  l : interleave (allFrom (0 : l)) (allFrom (1 : l))
+:}
+
+allLists = allFrom []
+
+take' 20 allLists
+
